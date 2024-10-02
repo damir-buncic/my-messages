@@ -9,12 +9,13 @@ export default defineConfig({
       input: {
         popup: "index.html",
         background: "/src/background/index.ts",
+        options: "options.html",
       },
       output: {
         entryFileNames: (chunkInfo) => {
-          return chunkInfo.name == "popup" ? "assets/[name]-[hash].js" : "[name].js";
+          return chunkInfo.name == "background" ? "[name].js" : "assets/[name]-[hash].js";
         },
       },
     },
-  }
+  },
 });
