@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { render } from "@testing-library/react";
 import App from "./app";
+import { Status } from "../../common/types";
 
 const useData = vi.hoisted(() => vi.fn());
 vi.mock("../hooks/useData", () => ({
@@ -14,7 +15,7 @@ describe("App component", () => {
 
   it("should render loading state", () => {
     useData.mockReturnValue({
-      status: "LOADING",
+      status: Status.LOADING,
     });
 
     const wrapper = render(<App />);
@@ -23,7 +24,7 @@ describe("App component", () => {
 
   it("should render error state", () => {
     useData.mockReturnValue({
-      status: "ERROR",
+      status: Status.ERROR,
       message: "Some error",
     });
 
@@ -33,7 +34,7 @@ describe("App component", () => {
 
   it("should render empty state", () => {
     useData.mockReturnValue({
-      status: "SUCCESS",
+      status: Status.SUCCESS,
       messages: [],
     });
 

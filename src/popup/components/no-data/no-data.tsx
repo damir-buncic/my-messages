@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { clearReadMessages } from "../../common/storage";
+import { clearReadMessages } from "../../../common/storage";
 
 export const NoData = () => {
   return (

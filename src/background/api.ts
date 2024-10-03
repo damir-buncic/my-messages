@@ -1,4 +1,4 @@
-import { Message } from "../common/types";
+import { Message, Priority } from "../common/types";
 
 const TIMEOUT = 1000;
 
@@ -6,21 +6,21 @@ const DATA = [
   {
     id: "msg1",
     content: "#1 Team meeting at 3 PM today 🙂",
-    priority: "high",
+    priority: Priority.high,
     timestamp: "2024-09-30T15:00:00Z",
     read: false,
   },
   {
     id: "msg2",
     content: "#2 Team meeting at 3 PM today 🙂",
-    priority: "normal",
+    priority: Priority.normal,
     timestamp: "2024-09-30T15:00:00Z",
     read: false,
   },
   {
     id: "msg3",
     content: "#3 Team meeting at 3 PM today 🙂",
-    priority: "low",
+    priority: Priority.low,
     timestamp: "2024-09-30T15:00:00Z",
     read: false,
   },
@@ -38,7 +38,7 @@ export function fetchMessages(): Promise<Message[]> {
 
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(DATA);
+      resolve(DATA.map((m) => ({ ...m })));
     }, TIMEOUT);
   });
 }

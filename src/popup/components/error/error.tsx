@@ -1,10 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-
-type Props = {
-  error: string;
-  onRefresh: () => void;
-};
+import { Props } from "./error.types";
 
 export const Error: React.FC<Props> = ({ error, onRefresh }) => {
   return (

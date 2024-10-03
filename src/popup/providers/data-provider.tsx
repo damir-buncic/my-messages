@@ -1,15 +1,15 @@
 import { createContext, useEffect, useState } from "react";
-import { Data } from "../../common/types";
+import { Data, Status } from "../../common/types";
 import { getData } from "../../common/storage";
 
-export const dataContext = createContext<Data>({ status: "LOADING" });
+export const dataContext = createContext<Data>({ status: Status.LOADING });
 
 type Props = {
   children: React.ReactNode;
 };
 
 const DataProvider = ({ children }: Props) => {
-  const [data, setData] = useState<Data>({ status: "LOADING" });
+  const [data, setData] = useState<Data>({ status: Status.LOADING });
 
   useEffect(() => {
     async function storageOnChanged() {
